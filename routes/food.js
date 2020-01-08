@@ -49,7 +49,6 @@ router.post('/next', function(req, res) {
 			'menu2' : 'bb'
 		}
 	};
-	//비동기적인 처리로 res.send를 request 함수 내부에 포함 시켰음!! (매우 중요)
 	request(url, function(error, response, body){
 		
 		const $ = cheerio.load(body);
