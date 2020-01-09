@@ -2,7 +2,7 @@ var express = require('express');
 var cheerio = require('cheerio');
 var request = require('request');
 var mysql = require('mysql');
-var dbconfig   = require('../config/database.js');
+var dbconfig   = require('../../config/database.js');
 var con = mysql.createConnection(dbconfig);
 var router = express.Router();
 
