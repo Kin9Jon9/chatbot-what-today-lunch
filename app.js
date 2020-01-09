@@ -44,6 +44,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.listen(process.env.PORT || 3000, () => console.log('Example app listening on port 3000!'));
+app.listen(process.env.PORT || 3000, () => console.log('오점머가 port 3000에서 실행 중 입니다.'));
 
 module.exports = app;
