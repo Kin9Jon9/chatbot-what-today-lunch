@@ -32,7 +32,7 @@ exports.getStudentMenu = function(){
 	})
 };
 
-//명진당 오늘, 내일 학식 크롤링
+//명진당 오늘, 내일 학식 크롤링 (1 : 가스야, 2: 덮고볶고)
 exports.getDdingMenu = function(){
 
 	return new Promise(resolve =>{
