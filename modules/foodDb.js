@@ -37,3 +37,16 @@ exports.add = (userPreferFood)=>{
 		console.log('아이템이 이미 존재하여 추가하지 않았습니다.');
 	});
 };
+
+//선호 메뉴 삭제
+
+exports.delete = (userPreferFood)=>{
+	return new Promise(resolve =>{
+		const sql = `DELETE FROM menu WHERE food = '${userPreferFood}'`;
+		
+		con.query(sql, (err, result)=>{
+			if(err) throw err;
+			console.log('삭제 되었습니다.');
+		});
+	});
+};
