@@ -84,3 +84,29 @@ exports.getFreeMenu = function(){
 		});
 	})
 };
+
+//전체 메뉴 크롤링
+exports.getAllMenu = function(){
+
+	return new Promise(async resolve =>{
+		
+		//전체 메뉴를 담을 배열.
+		result = [];
+
+		const student = await exports.getStudentMenu();
+		const myoungjin = await exports.getDdingMenu();
+		const freeKorean = await exports.getFreeMenu();
+
+		for(i in student.data){
+			result.push(student.data[i])
+		}
+		for(i in myoungjin.data){
+			result.push(myoungjin.data[i])
+		}
+		for(i in freeKorean.data){
+			result.push(freeKorean.data[i])
+		}
+		
+		resolve(result);
+	});
+};

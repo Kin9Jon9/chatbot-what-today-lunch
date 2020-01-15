@@ -21,11 +21,11 @@ exports.check = function(key){
 exports.add = function(key){
 	return new Promise(resolve =>{
 		
-		const sql = `INSERT INTO user (userkey) VALUES ('${key}')`
+		 const sql = `INSERT INTO user (userkey) VALUES ('${key}')`
 		
-		con.query(sql,(err,result)=>{
-			if(err) throw err;
-			console.log('유저 정보가 성공적으로 입력 되었습니다. index :', result.insertId);
-		})
+		 con.query(sql,(err,result)=>{
+		 	if(err) throw err;
+		 	console.log('유저 정보가 성공적으로 입력 되었습니다. index :', result.insertId);
+		 })
 	})
 }
