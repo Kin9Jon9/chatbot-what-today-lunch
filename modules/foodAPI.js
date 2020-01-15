@@ -45,13 +45,28 @@ exports.delete = (user, userPreferFood)=>{
 	return new Promise(resolve =>{
 		const sql = `DELETE FROM prefer WHERE `+
 			  `food = '${userPreferFood}' AND `+
-			  `user_idx IN (SELECT user_idx FROM user WHERE userkey = '${user}')`;
+			  `user_idx = (SELECT user_idx FROM user WHERE userkey = '${user}')`;
 		
 		con.query(sql, (err, result)=>{
 			if(err) throw err;
-			console.log('삭제 되었습니다.');
 		});
 		//resolve 꼭 해야하..?
 		resolve('삭제 호출');
+	});
+};
+
+//선호 메뉴 읽어오기
+
+exports.getFavorite = (user) =>{
+	return new Promise(resolve=>{
+		const sql = `SELECT food FROM prefer WHERE user_idx = (SELECT user_idx FROM user WHERE userkey = '${user}')`;
+		con.query(sql, (err, result)=>{
+			if(err) throw err;
+			const temp = []; 
+			for(i in result){
+				temp.push(result[i].food);
+			}
+			resolve(temp);
+		});
 	});
 };

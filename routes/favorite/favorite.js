@@ -6,6 +6,24 @@ var foodAPI = require('../../modules/foodAPI');
 var con = mysql.createConnection(dbconfig);
 var router = express.Router();
 
+//Show All favorite food
+router.post('/', async (req,res)=>{
+	
+	//유저 식별키를 받아옴
+	const user = req.body.userRequest.user.properties.plusfriendUserKey;
+	
+	//선호 음식 목록을 받아옴
+	const foodList = await foodAPI.getFavorite();
+	
+	const result ={
+		version : '2.0',
+		data1 : foodList
+	}
+	
+	res.send(result);
+		
+})
+
 // get favorite Keyword
 router.post('/set',async (req,res)=>{
 	
