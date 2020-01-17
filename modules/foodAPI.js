@@ -1,5 +1,6 @@
 var mysql = require('mysql');
-var dbconfig   = require('../config/database.js');
+var dbconfig   = require('../config/database');
+var crawling = require('../crawling/crawling');
 var con = mysql.createConnection(dbconfig);
 
 //중복 여부 확인
@@ -58,16 +59,43 @@ exports.delete = (user, userPreferFood)=>{
 
 //선호 메뉴 읽어오기
 
-exports.getFavorite = (user) =>{
+exports.getFavoriteKeyword = (user) =>{
+	
 	return new Promise(resolve=>{
+		
 		const sql = `SELECT food FROM prefer WHERE user_idx = (SELECT user_idx FROM user WHERE userkey = '${user}')`;
 		con.query(sql, (err, result)=>{
 			if(err) throw err;
-			const temp = []; 
+			
+			const KeywordList = [];
+
 			for(i in result){
-				temp.push(result[i].food);
+				KeywordList.push(result[i].food);
 			}
-			resolve(temp);
+			//선호 메뉴 키워드 반환
+			resolve(KeywordList);
+		
 		});
 	});
+};
+
+exports.getFavoriteMenu = async (user, keywordList) =>{
+	
+	//선호 키워드를 받아옴
+	//여기서 await는 하위, 하위 값을 await로 받아오기 때문임
+	//오늘, 내일의 모든 식당의 학식 메뉴를 받아옴
+	const allMenu = await crawling.getAllMenu();
+
+	//선호 학식을 담을 배열
+	let result = [];
+	
+	// 선호 메뉴를 찾기 위해 키워드와 일치 하는 학식을 찾음
+	for(let keyword in keywordList){
+		for(let menu in allMenu){
+			if (allMenu[menu].indexOf(keywordList[keyword]) > -1){
+				result.push(allMenu[menu]);
+			}
+		}
+	}
+	return result;
 };

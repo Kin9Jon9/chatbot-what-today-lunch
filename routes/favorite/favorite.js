@@ -11,22 +11,22 @@ router.post('/', async (req,res)=>{
 	
 	//유저 식별키를 받아옴
 	const user = req.body.userRequest.user.properties.plusfriendUserKey;
-	
-	//선호 음식 목록을 받아옴
-	const foodList = await foodAPI.getFavorite();
-	
-	for(i in foodList){
-		console.log(foodList);
-	}
+
+	//선호 키워드, 메뉴 받아옴
+	const keywordList = await foodAPI.getFavoriteKeyword(user);
+	const foodList = await foodAPI.getFavoriteMenu(user, keywordList);
 	
 	const result ={
 		version : '2.0',
-		data1 : foodList
-	}
-	
+		data : {
+			favoriteKeyword : '키워드가 존재 하지 않습니다.',
+			menu : '메뉴가 존재 하지 않습니다.'
+		}
+	};
+	if(foodList.length != 0) result.data.menu = foodList.join('\n\n\n');
+	if(keywordList.length != 0) result.data.favoriteKeyword = keywordList.join(' / ')
+	console.log(result);
 	res.send(result);
-	
-	
 	
 })
 

@@ -92,29 +92,65 @@ exports.getAllMenu = function(){
 		
 		//전체 메뉴를 담을 배열.
 		result = [];
-		favoriteMenu = [];
 		const student = await exports.getStudentMenu();
 		const myoungjin = await exports.getDdingMenu();
 		const freeKorean = await exports.getFreeMenu();
 
 		for(i in student.data){
-			result.push(student.data[i])
+			switch(i){
+				case 'menu1' :
+					result.push('오늘 백반 : '+student.data[i]);
+					break;
+				case 'menu2' :
+					result.push('오늘 일품 : '+student.data[i]);
+					break;
+				case 'menu3' :
+					result.push('오늘 양식 : '+student.data[i]);
+					break;
+				case 'menu1Next' :
+					result.push('내일 백반 : '+student.data[i]);
+					break;
+				case 'menu2Next' :
+					result.push('내일 일품 : '+student.data[i]);
+					break;
+				case 'menu3Next' :
+					result.push('내일 양식 : '+student.data[i]);
+					break;
+				default :
+					break;
+			}
 		}
 		for(i in myoungjin.data){
-			result.push(myoungjin.data[i])
+			switch(i){
+				case 'menu1' :
+					result.push('오늘 가스야 : '+myoungjin.data[i]);
+					break;
+				case 'menu2' :
+					result.push('오늘 덮고복고 : '+myoungjin.data[i]);
+					break;
+				case 'menu1Next' :
+					result.push('내일 가스야 : '+myoungjin.data[i]);
+					break;
+				case 'menu2Next' :
+					result.push('내일 덮고복고 : '+myoungjin.data[i]);
+					break;
+				default :
+					break;
+			}
 		}
 		for(i in freeKorean.data){
-			result.push(freeKorean.data[i])
+			switch(i){
+				case 'menu1' :
+					result.push('오늘 자율한식 : '+freeKorean.data[i]);
+					break;
+				case 'menu1Next' :
+					result.push('내일 자율한식 : '+freeKorean.data[i]);
+					break;
+				default :
+					break;
+			}
 		}
-		
-		for(i in result){
-			//indexOf에 테이블에서 얹어온 값들이 들어감
-			if(result[i].indexOf('깍두기') > -1){			 
-				favoriteMenu.push(result[i]);
-			}	
-		}
+		//전체 메뉴 반환
 		resolve(result);
 	});
 };
-
-exports.getAllMenu();
