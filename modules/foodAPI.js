@@ -49,6 +49,7 @@ exports.delete = (user, userPreferFood)=>{
 		
 		con.query(sql, (err, result)=>{
 			if(err) throw err;
+			console.log('유저가 입력한 음식을 삭제 하였습니다.');
 		});
 		//resolve 꼭 해야하..?
 		resolve('삭제 호출');

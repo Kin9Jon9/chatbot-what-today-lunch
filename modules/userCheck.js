@@ -27,5 +27,7 @@ exports.add = function(key){
 		 	if(err) throw err;
 		 	console.log('유저 정보가 성공적으로 입력 되었습니다. index :', result.insertId);
 		 })
+		//여기는 resolve가 있는데 왜 가능한지?
+		resolve('유저식별 쿼리 추가');
 	})
 }

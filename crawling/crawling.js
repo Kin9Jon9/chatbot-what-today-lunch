@@ -15,7 +15,7 @@ exports.getStudentMenu = function(){
 		request(url, function(error, response, body){
 
 			const $ = cheerio.load(body);
-			let day = (new Date().getDay()) + 1;
+			let day = (new Date().getDay());
 
 			//맨앞 공백제거를 위한 substring(1)
 			result.data.menu1 = $('body tr:nth-child(10) table:nth-child('+day+') tbody tr:nth-child(1) div').text().substring(1);
@@ -46,7 +46,7 @@ exports.getDdingMenu = function(){
 		request(url, function(error, response, body){
 
 			const $ = cheerio.load(body);
-			let day = (new Date().getDay()) + 1;
+			let day = (new Date().getDay());
 			
 			result.data.menu1 = $('body tr:nth-child(10) table:nth-child('+day+') tbody tr:nth-child(3) div').text().replace('\n', ' / ');
 			result.data.menu2 = $('body tr:nth-child(10) table:nth-child('+day+') tbody tr:nth-child(4) div').text().replace('\n', ' / ');
@@ -74,7 +74,7 @@ exports.getFreeMenu = function(){
 		request(url, function(error, response, body){
 
 			const $ = cheerio.load(body);
-			let day = (new Date().getDay()) + 1;
+			let day = (new Date().getDay());
 			
 			result.data.menu1 = $('body tr:nth-child(10) table:nth-child('+day+') tbody tr:nth-child(1) div').text().replace(/\n/gi,' ');
 			result.data.menu1Next = $('body tr:nth-child(10) table:nth-child('+(day+1)+') tbody tr:nth-child(1) div').text().replace(/\n/gi,' ');
@@ -107,6 +107,9 @@ exports.getAllMenu = function(){
 			result.push(freeKorean.data[i])
 		}
 		
+		console.log(result);
 		resolve(result);
 	});
 };
+
+exports.getAllMenu();

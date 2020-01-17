@@ -67,7 +67,7 @@ router.post('/del', async (req, res)=>{
 	//유저 발화문 출력
 	console.log(PreferedFood);
 	
-	console.log('데이터를 삭제합니다.');
+	console.log('데이터 삭제중...');
 	const temp = await foodAPI.delete(user, PreferedFood);
 	
 	const result = {
