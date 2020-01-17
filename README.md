@@ -1,2 +1,10 @@
-# ChatBot_mjojm
-Kakao Talk chatbot to tell you about lunch menu and desired menu.
+# 명지대학교 학식 알리미 (챗봇)
+
+명지대학교 학식을 크롤링하여 서비스 하는 챗봇입니다. 학생회관, 명진당, 자율한식의 식단을 확인 가능 합니다.
+금주 식단 중, 원하는 메뉴가 포함되어 있는 식단만 보고 싶다면 추가 기능을 이용 해보세요!
+
+# 사용 기술 스태
+
+* Node.js 로 API를 서버 구현 및 카카오 I 오픈빌더 사용하여 챗봇 제작
+
+# 나중에 쓸랭~
