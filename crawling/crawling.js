@@ -92,7 +92,7 @@ exports.getAllMenu = function(){
 		
 		//전체 메뉴를 담을 배열.
 		result = [];
-
+		favoriteMenu = [];
 		const student = await exports.getStudentMenu();
 		const myoungjin = await exports.getDdingMenu();
 		const freeKorean = await exports.getFreeMenu();
@@ -107,7 +107,12 @@ exports.getAllMenu = function(){
 			result.push(freeKorean.data[i])
 		}
 		
-		console.log(result);
+		for(i in result){
+			//indexOf에 테이블에서 얹어온 값들이 들어감
+			if(result[i].indexOf('깍두기') > -1){			 
+				favoriteMenu.push(result[i]);
+			}	
+		}
 		resolve(result);
 	});
 };

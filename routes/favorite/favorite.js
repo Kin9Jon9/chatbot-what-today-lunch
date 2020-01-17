@@ -15,13 +15,19 @@ router.post('/', async (req,res)=>{
 	//선호 음식 목록을 받아옴
 	const foodList = await foodAPI.getFavorite();
 	
+	for(i in foodList){
+		console.log(foodList);
+	}
+	
 	const result ={
 		version : '2.0',
 		data1 : foodList
 	}
 	
 	res.send(result);
-		
+	
+	
+	
 })
 
 // get favorite Keyword
