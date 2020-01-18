@@ -25,7 +25,6 @@ router.post('/', async (req,res)=>{
 	};
 	if(foodList.length != 0) result.data.menu = foodList.join('\n\n\n');
 	if(keywordList.length != 0) result.data.favoriteKeyword = keywordList.join(' / ')
-	console.log(result);
 	res.send(result);
 	
 })
