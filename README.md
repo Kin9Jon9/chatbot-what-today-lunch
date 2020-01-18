@@ -10,18 +10,24 @@
 
 # 🔍 챗봇 사용하기
 
-카카오톡 친구 추가 (명지대 학식알리미) 
+* 카카오톡 친구 추가 (명지대 학식알리미) 
 
 
 # 📷 사용 예시
 
 * 학식 보기
 
-![image1](./img/1.jpg)|![image2](./img/2.jpg)|![image3](./img/3.jpg)|
+|    ![image1](./img/1.jpg)|    ![image2](./img/2.jpg)|
+![image3](./img/3.jpg)|
 
 * 선호 메뉴 관리 하기
 
-![image4](./img/4.jpg)|![image5](./img/5.jpg)|![image6](./img/6.jpg)|
+|    ![image4](./img/4.jpg)|    ![image5](./img/5.jpg)|
+![image6](./img/6.jpg)|
 
+# 추가 예정 기능
 
-
+* 인문캠퍼스 / 자연캠퍼스 구분하여 서비스 제공
+* 캠퍼스 별 학식 제공
+* 캠퍼스 별 미세먼지 수치 제공
+* 캠퍼스 별 공지사항 제공
