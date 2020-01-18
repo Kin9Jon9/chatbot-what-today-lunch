@@ -17,23 +17,29 @@
 
 * 학식 보기
  * 학생회관
+ 
  ![image1](./img/1.jpg)
  
  * 명진당
+ 
  ![image2](./img/2.jpg)
 
  * 자율한식
+ 
  ![image3](./img/3.jpg)
 
 * 선호 메뉴 관리 하기
 
  * 선호메뉴 추가
+ 
  ![image4](./img/4.JPG)
  
  * 선호메뉴 보기
+ 
  ![image5](./img/5.JPG)
  
  * 선호메뉴 삭제
+ 
  ![image6](./img/6.JPG)
 
 # 추가 예정 기능
