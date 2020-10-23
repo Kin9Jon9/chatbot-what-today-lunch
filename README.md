@@ -16,7 +16,7 @@
 
 * 학식 보기
 
-| ![image1](./img/1.jpg) | ![image1](./img/1.jpg) | ![image1](./img/1.jpg) |
+| ![image1](./img/1.jpg) | ![image2](./img/2.jpg) | ![image3](./img/3.jpg) |
 | :----: | :----: | :----: |
 | **학생회관** | **명진당** | **자율한식** |
 
